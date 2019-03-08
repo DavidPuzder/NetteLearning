@@ -16,9 +16,9 @@ session:
 
 
 database:
-	dsn: 'mysql:host=127.0.0.1;dbname=test'
-	user:
-	password:
+	dsn: '%database.driver%:host=%database.host%;port=%database.port%;dbname=%database.dbname%'
+	user: %database.user%
+	password: %database.password%
 	options:
 		lazy: yes
 

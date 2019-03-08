@@ -2,4 +2,6 @@
 vendor/*
 log/*
 temp/*
-www/images/
+www/images/*
+app/config/config.local.neon
+!app/config/config.local.neon.dist

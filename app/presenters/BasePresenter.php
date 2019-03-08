@@ -6,7 +6,7 @@ use Nette;
 
 
 /**
- * Base presenter for all application presenters.
+ * BasePresenter sa spúšťa na každej stránke.
  */
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {

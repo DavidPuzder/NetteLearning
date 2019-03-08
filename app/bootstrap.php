@@ -1,10 +1,16 @@
 <?php
 
+/**
+ * Bootstrap.php sa spúšťa pri zapnutí projektu
+ */
+
 require __DIR__ . '/../vendor/autoload.php';
 
 $configurator = new Nette\Configurator;
 
-//$configurator->setDebugMode('23.75.345.200'); // enable for your remote IP
+/** Zapnutie Tracy (vypisovanie chýb, ak stránka zlyhá) a lišťa dole napravo */
+$configurator->setDebugMode(TRUE); // TRUE = zapnut, FALSE = vypnut, alebo len na IP adresu
+
 $configurator->enableTracy(__DIR__ . '/../log');
 
 $configurator->setTimeZone('Europe/Prague');
