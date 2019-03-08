@@ -5,33 +5,25 @@ use Phinx\Migration\AbstractMigration;
 
 class CreateUserTable extends AbstractMigration
 {
-    /**
-     * Change Method.
-     *
-     * Write your reversible migrations using this method.
-     *
-     * More information on writing migrations is available here:
-     * http://docs.phinx.org/en/latest/migrations.html#the-abstractmigration-class
-     *
-     * The following commands can be used in this method and Phinx will
-     * automatically reverse them when rolling back:
-     *
-     *    createTable
-     *    renameTable
-     *    addColumn
-     *    addCustomColumn
-     *    renameColumn
-     *    addIndex
-     *    addForeignKey
-     *
-     * Any other destructive changes will result in an error when trying to
-     * rollback the migration.
-     *
-     * Remember to call "create()" or "update()" and NOT "save()" when working
-     * with the Table class.
-     */
+
+    protected $prefix = 'dl_';
+
+
+
     public function change()
     {
-
+        if ( ! $this->hasTable($this->prefix . 'user')) {
+            // Create User Table
+            $table = $this->table($this->prefix . 'user');
+            $table->addColumn('username', 'string')
+                ->addColumn('password', 'string')
+                ->addColumn('email', 'string')
+                ->addColumn('role', 'string', ['default' => 'Registered', 'null' => false])
+                ->addColumn('activated', 'integer', ['default' => '0', 'null' => false])
+                ->addColumn('image', 'string', [ 'null' => true, 'default' => 'null'])
+                ->addColumn('status', 'integer', ['default' => '1', 'null' => false])
+                ->addColumn('created', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
+                ->create();
+        }
     }
 }
