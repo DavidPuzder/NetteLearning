@@ -1,6 +1,7 @@
 .idea
 vendor/*
 log/*
+!log/.gitkeep
 temp/*
 www/images/*
 app/config/config.local.neon

@@ -6,15 +6,11 @@ use Phinx\Migration\AbstractMigration;
 class CreateUserTable extends AbstractMigration
 {
 
-    protected $prefix = 'dl_';
-
-
-
     public function change()
     {
-        if ( ! $this->hasTable($this->prefix . 'user')) {
+        if ( ! $this->hasTable('user')) {
             // Create User Table
-            $table = $this->table($this->prefix . 'user');
+            $table = $this->table('user');
             $table->addColumn('username', 'string')
                 ->addColumn('password', 'string')
                 ->addColumn('email', 'string')
