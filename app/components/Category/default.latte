@@ -1,0 +1,39 @@
+<div class="row">
+    {foreach $categories as $category}
+        <div class="col-sm-12 pb-3 mb-5">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <a href="{plink Category:show, $category->id}" class="container">
+                            <div class="col-sm-12 category-image" data-content="{$category->title}">
+                                {if $category->image}
+                                    <img src="{$basePath}/images/category/{$category->id}/{$category->image}" alt="{$category->description}">
+                                {else}
+                                    <img src="http://placehold.it/1068x400" alt="Card image cap">
+                                {/if}
+                            </div>
+                        </a>
+                        {for $i = 0; $i<3; $i++}
+                            <a href="#" class="col-md-4 pb-3">
+                                <div class="card">
+                                    <img class="card-img-top" src="http://placehold.it/300x150" alt="{$category->description}">
+                                    <div class="card-body">
+                                        <p><strong>
+                                                Blog title
+                                            </strong></p>
+                                        <p class="card-text">
+                                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        {/for}
+                    </div>
+                    <p class="card-text"></p>
+                    <a href="{plink Category:show, $category->id}" class="btn btn-primary">Zobraziť články v kategórií <em>{$category->title}</em> >></a>
+                </div>
+            </div>
+        </div>
+    {/foreach}
+</div>
+

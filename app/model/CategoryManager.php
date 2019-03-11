@@ -42,4 +42,13 @@ class CategoryManager
         }
         return $this->db->table($this->tableName)->where('status <> 0')->order('updated DESC')->fetchAll();
     }
+
+    /**
+     * Get category
+     * @param $categoryId
+     * @return false|Nette\Database\Table\ActiveRow
+     */
+    public function getCategory($categoryId) {
+        return $this->db->table($this->tableName)->get($categoryId);
+    }
 }

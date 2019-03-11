@@ -2,7 +2,8 @@
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
         <li class="nav-item">
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Vyhľadávanie">
+                <label for="searchFormNav">Vyhľadávanie</label>
+                <input id="searchFormNav" class="form-control mr-sm-2" type="search" placeholder="Vyhľadávanie">
             </form>
         </li>
         <li class="nav-item active">
@@ -30,10 +31,17 @@
                     Kategórie {ifCurrent Category:*} <span class="sr-only">(current) {/ifCurrent}</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{plink Category:default}">Zobraziť všetky</a>
+                    <div class="dropdown-divider"></div>
                     {foreach $categories as $category}
-                        <a class="dropdown-item" href="#">{$category->title}</a>
+                        <a class="dropdown-item" href="{plink Category:show, $category->id}">{$category->title}</a>
                     {/foreach}
                 </div>
+            </li>
+            <li class="nav-item {ifCurrent Homepage:*}active{/ifCurrent}">
+                <a class="nav-link" href="{plink Homepage:default}">
+                    Domov
+                </a>
             </li>
             <li class="nav-item {ifCurrent Blog:*}active{/ifCurrent}">
                 <a class="nav-link" href="{plink Blog:default}">

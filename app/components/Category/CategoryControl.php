@@ -32,11 +32,17 @@ class CategoryControl extends UI\Control
         $this->template->setFile(__DIR__ . '/' . $template . '.latte');
 
         if ($template == 'newest') {
-            $this->template->categories = $this->categoryManager->getCategories(5);
+            $this->template->categories = $this->categoryManager->getCategories(10);
         }
 
+        if ($template == 'default') {
+            $this->template->categories = $this->categoryManager->getCategories();
+        }
 
-        // Render Template
+        if ($template == 'show') {
+            $this->template->category = $this->categoryManager->getCategory($params['category_id']);
+        }
+
         $this->template->render();
     }
 }

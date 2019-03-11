@@ -26,6 +26,9 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
     protected function startup() {
         parent::startup();
 
+        // Global Variables
+        $this->template->locale = $this->locale;
+
         // Add Components
         $this->addComponent($this->menuControlFactory->create(), 'menu');
     }

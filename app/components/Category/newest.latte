@@ -1,12 +1,18 @@
-<div class="col-sm-12 mt-5">
+<div class="col-sm-12 mt-5 mb-5">
     <h3>Najnovšie kategórie</h3>
     <div class="row">
         <div class="container">
-            {foreach $categories as $category}
-                <a href="#" class="btn btn-primary">
-                    {$category->title}
-                </a>
-            {/foreach}
+            {if count($categories) > 0}
+                {foreach $categories as $category}
+                    <a href="{plink Category:show, $category->id}" class="btn btn-primary mt-1">
+                        {$category->title}
+                    </a>
+                {/foreach}
+                <br>
+                <a href="{plink Category:default}" class="btn btn-link pl-0">Zobraziť všetky</a>
+            {else}
+                <p class="lead">Žiadne kategórie na zobrazenie.</p>
+            {/if}
         </div>
     </div>
 </div>
