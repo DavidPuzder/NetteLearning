@@ -44,4 +44,6 @@ services:
     - App\Forms\SignUpFormFactory
     - App\Components\Menu\MenuControl\MenuControlFactory
     - App\Components\Blog\BlogControl\BlogControlFactory
+    - App\Components\Category\CategoryControl\CategoryControlFactory
+    - App\Model\CategoryManager
     router: App\RouterFactory::createRouter

@@ -1,20 +1,21 @@
 <?php
 
-namespace App\Components\Menu\MenuControl;
+namespace App\Components\Category\CategoryControl;
 
 use App\Model\CategoryManager;
 use Nette\Application\UI;
 
-interface MenuControlFactory
+interface CategoryControlFactory
 {
     /**
-     * @return MenuControl
+     * @return CategoryControl
      */
     public function create();
 }
 
-class MenuControl extends UI\Control
+class CategoryControl extends UI\Control
 {
+
     /** @var  CategoryManager */
     private $categoryManager;
 
@@ -26,12 +27,16 @@ class MenuControl extends UI\Control
     }
 
 
-    public function render($template = 'default')
+    public function render($template = 'default', $params = null)
     {
         $this->template->setFile(__DIR__ . '/' . $template . '.latte');
 
-        $this->template->categories = $this->categoryManager->getCategories(10);
+        if ($template == 'newest') {
+            $this->template->categories = $this->categoryManager->getCategories(5);
+        }
 
+
+        // Render Template
         $this->template->render();
     }
 }

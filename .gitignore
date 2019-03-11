@@ -3,6 +3,6 @@ vendor/*
 log/*
 !log/.gitkeep
 temp/*
-www/images/*
+www/images/public/*
 app/config/config.local.neon
 !app/config/config.local.neon.dist

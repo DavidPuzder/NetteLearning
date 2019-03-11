@@ -30,8 +30,9 @@
                     Kategórie {ifCurrent Category:*} <span class="sr-only">(current) {/ifCurrent}</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Gadgety</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    {foreach $categories as $category}
+                        <a class="dropdown-item" href="#">{$category->title}</a>
+                    {/foreach}
                 </div>
             </li>
             <li class="nav-item {ifCurrent Blog:*}active{/ifCurrent}">

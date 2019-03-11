@@ -1,0 +1,12 @@
+<div class="col-sm-12 mt-5">
+    <h3>Najnovšie kategórie</h3>
+    <div class="row">
+        <div class="container">
+            {foreach $categories as $category}
+                <a href="#" class="btn btn-primary">
+                    {$category->title}
+                </a>
+            {/foreach}
+        </div>
+    </div>
+</div>
