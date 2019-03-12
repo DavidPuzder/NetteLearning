@@ -30,7 +30,13 @@ class MenuControl extends UI\Control
     {
         $this->template->setFile(__DIR__ . '/' . $template . '.latte');
 
-        $this->template->categories = $this->categoryManager->getCategories(7);
+        if ($template == 'default') {
+            $this->template->categories = $this->categoryManager->getCategories(7);
+        }
+
+        if ($template == 'footer') {
+
+        }
 
         $this->template->render();
     }

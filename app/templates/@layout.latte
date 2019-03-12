@@ -3,10 +3,10 @@
  * @param array    $flashes  flash messages
  *}
 <!DOCTYPE html>
-<html lang="{$locale}">
+<html lang="{$lang}">
 <head>
 
-	<title>{ifset title}{include title|stripHtml} | {/ifset}Naše Nette</title>
+	<title>{ifset title}{include title|stripHtml} | {/ifset} {$siteSettings['site-name']}</title>
 
 	<meta charset="UTF-8">
 	<meta name="description" content="Free Web tutorials">
@@ -22,11 +22,21 @@
 <body>
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
-	{control menu}
-	<div class="container mt-4">
-		{include content}
-	</div>
+	{if $siteSettings['open-counter']}
+		{control openCounter}
+	{/if}
 
+	<header>
+		{control menu}
+	</header>
+	<main>
+		<div class="container mt-4">
+			{include content}
+		</div>
+	</main>
+	<footer>
+		{control menu, 'footer'}
+	</footer>
 	{block scripts}
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>

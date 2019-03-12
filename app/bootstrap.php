@@ -9,7 +9,7 @@ require __DIR__ . '/../vendor/autoload.php';
 $configurator = new Nette\Configurator;
 
 /** Zapnutie Tracy (vypisovanie chýb, ak stránka zlyhá) a lišťa dole napravo */
-$configurator->setDebugMode(false); // TRUE = zapnut, FALSE = vypnut, alebo len na IP adresu
+$configurator->setDebugMode(true); // TRUE = zapnut, FALSE = vypnut, alebo len na IP adresu
 
 $configurator->enableTracy(__DIR__ . '/../log');
 
